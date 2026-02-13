@@ -1,21 +1,32 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<Card> deck = Deck.getDeck();
-        System.out.println("Talia niepotasowana:");
-        System.out.println();
+        //DRAFT
+//        Deck deck = new Deck();
+//        System.out.println("Talia niepotasowana:");
+//        System.out.println();
+//
+//        for (Card card : deck.getDeck()) {
+//            card.printCard();
+//        }
+//        System.out.println("Talia potasowana:");
+//        deck.shuffleDeck();
+//
+//        for (Card card : deck.getDeck()) {
+//            card.printCard();
+//        }
+        Game game = new Game();
+        Scanner sc = new Scanner(System.in);
 
-        for (Card card : deck) {
-            card.printCard();
-        }
-        System.out.println("Talia potasowana:");
-        deck = Deck.shuffle();
+        do {
+            game.initializePhase();
+            game.mainPhase();
+            System.out.println("Czy chcesz zagrać ponownie? 1 - tak");
+        } while (sc.nextInt() == 1);
 
-        for (Card card : deck) {
-            card.printCard();
-        }
-
+        sc.close();
     }
 }

@@ -8,7 +8,7 @@ public class Card {
         this.rank = rank;
         switch (rank) {
             case "A":
-                this.value = 11;
+                this.value = 1;
                 break;
             case "K":
             case "Q":
@@ -36,6 +36,6 @@ public class Card {
     public void printCard() {
         System.out.println("Suit : " + this.getSuit());
         System.out.println("Rank : " + this.getRank());
-        System.out.println("Vaule: " + this.getValue());
+        System.out.println("Value: " + this.getValue());
     }
 }

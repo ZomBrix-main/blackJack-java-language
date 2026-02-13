@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Deck {
-    private static final List<Card> deck = new ArrayList<>();
+    List<Card> deck = new ArrayList<>();
 
-    static {
+    public Deck() {
         deck.add(new Card("kier", "A"));
         deck.add(new Card("kier", "2"));
         deck.add(new Card("kier", "3"));
@@ -64,17 +64,28 @@ public class Deck {
         deck.add(new Card("karo", "K"));
     }
 
-    public static List<Card> getDeck() {
+    public List<Card> getDeck() {
         return deck;
     }
 
-    public static List<Card> shuffle() {
+//    public List<Card> shuffleDeck() {
+    public void shuffleDeck() {
         Collections.shuffle(deck);
-        return deck;
     }
 
-//TIP Własna funkcja na tasowa ie do celów naukowych
-    public static List<Card> customShuffle(int liczbaZamian) {
+    public Card drawCard() {
+        Card drawedCard = deck.getLast();
+        deck.removeLast();
+
+        return drawedCard;
+    }
+
+    public boolean quarterLeft() {
+        return deck.size() < 13;
+    }
+
+//TIP Własna funkcja na tasowanie do celów naukowych
+    public List<Card> customShuffle(int liczbaZamian) {
         if (liczbaZamian > 0) {
             Random random = new Random();
             int index1 = random.nextInt(deck.size());
